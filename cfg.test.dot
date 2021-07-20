@@ -1,0 +1,12 @@
+digraph "CFG for 'test' function" {
+	label="CFG for 'test' function";
+
+	Node0x1a70000 [shape=record,label="{entry:\l  br i1 %Condition, label %cond_true, label %cond_false\l|{<s0>T|<s1>F}}"];
+	Node0x1a70000:s0 -> Node0x1a70bc0;
+	Node0x1a70000:s1 -> Node0x1a70c10;
+	Node0x1a70bc0 [shape=record,label="{cond_true:                                        \l  %X.0 = load i32, i32* @G\l  br label %cond_next\l}"];
+	Node0x1a70bc0 -> Node0x1a70c60;
+	Node0x1a70c10 [shape=record,label="{cond_false:                                       \l  %X.1 = load i32, i32* @H\l  br label %cond_next\l}"];
+	Node0x1a70c10 -> Node0x1a70c60;
+	Node0x1a70c60 [shape=record,label="{cond_next:                                        \l  %X.2 = phi i32 [ %X.1, %cond_false ], [ %X.0, %cond_true ]\l  ret i32 %X.2\l}"];
+}

@@ -1,0 +1,10 @@
+digraph "CFG for 'printstar' function" {
+	label="CFG for 'printstar' function";
+
+	Node0xbe7210 [shape=record,label="{entry:\l  br label %loop\l}"];
+	Node0xbe7210 -> Node0xbeb160;
+	Node0xbeb160 [shape=record,label="{loop:                                             \l  %i = phi double [ 1.000000e+00, %entry ], [ %nextvar, %loop ]\l  %calltmp = call double @putchard(double 4.200000e+01)\l  %nextvar = fadd double %i, 1.000000e+00\l  %cmptmp = fcmp ult double %i, %n\l  %booltmp = uitofp i1 %cmptmp to double\l  %loopcond = fcmp one double %booltmp, 0.000000e+00\l  br i1 %loopcond, label %loop, label %afterloop\l|{<s0>T|<s1>F}}"];
+	Node0xbeb160:s0 -> Node0xbeb160;
+	Node0xbeb160:s1 -> Node0xbeb1b0;
+	Node0xbeb1b0 [shape=record,label="{afterloop:                                        \l  ret double 0.000000e+00\l}"];
+}

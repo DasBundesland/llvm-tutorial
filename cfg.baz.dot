@@ -1,0 +1,12 @@
+digraph "CFG for 'baz' function" {
+	label="CFG for 'baz' function";
+
+	Node0x180d190 [shape=record,label="{entry:\l  %ifcond = fcmp one double %x, 0.000000e+00\l  br i1 %ifcond, label %then, label %else\l|{<s0>T|<s1>F}}"];
+	Node0x180d190:s0 -> Node0x180d210;
+	Node0x180d190:s1 -> Node0x180d260;
+	Node0x180d210 [shape=record,label="{then:                                             \l  %calltmp = call double @foo()\l  br label %ifcont\l}"];
+	Node0x180d210 -> Node0x180d2b0;
+	Node0x180d260 [shape=record,label="{else:                                             \l  %calltmp1 = call double @bar()\l  br label %ifcont\l}"];
+	Node0x180d260 -> Node0x180d2b0;
+	Node0x180d2b0 [shape=record,label="{ifcont:                                           \l  %iftmp = phi double [ %calltmp, %then ], [ %calltmp1, %else ]\l  ret double %iftmp\l}"];
+}
